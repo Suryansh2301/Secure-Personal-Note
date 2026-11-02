@@ -60,12 +60,12 @@ Secure_Personal_Note_Vault/
 ### 1. Clone and create a virtual environment
 
 ```bash
-git clone <your-repo-url>
+git clone <https://github.com/Suryansh2301/Secure-Personal-Note.git>
 cd Secure_Personal_Note_Vault
 
 python -m venv .venv
 # Windows
-.venv\Scripts\activate
+.venv\Scripts\activate.ps1
 # macOS / Linux
 source .venv/bin/activate
 ```
