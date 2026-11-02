@@ -16,7 +16,7 @@ A small full-stack notes app where every note belongs to one account. Users regi
 - **Passwords hashed with bcrypt** (never stored in plain text).
 - **JWT access tokens** (HS256, 30-minute expiry by default) via the OAuth2 bearer scheme.
 - **Per-user isolation:** notes are filtered by the logged-in user's id; deleting someone else's note returns `404`.
-- **Input validation** with Pydantic: username 3–50 chars (letters, numbers, `. _ -`), password 6–72 chars, non-empty note title (max 100) and content.
+- **Input validation** with Pydantic: username 3–100chars (letters, numbers, `. _ -`), password 6–72 chars, non-empty note title (max 100) and content.
 - **Tables are created automatically** on startup.
 - **Single-command run:** FastAPI serves both the API and the frontend.
 - Interactive API docs at `/docs`.
