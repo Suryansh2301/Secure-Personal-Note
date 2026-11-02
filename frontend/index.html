@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Note Vault</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/styles.css">
+</head>
+<body>
+    <main class="shell">
+    <header class="brand">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="3" y="3" width="26" height="26" rx="7" fill="currentColor"/>
+        <circle cx="16" cy="14" r="4.2" fill="none" stroke="var(--paper)" stroke-width="2.2"/>
+        <path d="M16 18.2V24" stroke="var(--paper)" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-name">Note Vault</span>
+    </header>
+
+    <!-- Auth: sign in / create account in ONE card -->
+    <section id="auth-section" class="card" aria-labelledby="auth-title">
+        <h1 id="auth-title" class="title">Your notes, locked to you.</h1>
+        <p class="lede">Every note is tied to your account. Nobody else can read or delete it.</p>
+
+        <div class="switch" role="tablist" aria-label="Choose how to continue" data-mode="login">
+        <span class="switch-thumb" aria-hidden="true"></span>
+        <button type="button" role="tab" id="tab-login" class="switch-btn" data-mode="login"
+                aria-selected="true" aria-controls="panel-login">Sign in</button>
+        <button type="button" role="tab" id="tab-register" class="switch-btn" data-mode="register"
+                aria-selected="false" aria-controls="panel-register" tabindex="-1">Create account</button>
+    </div>
+
+    <div id="auth-message" class="message" role="status" aria-live="polite" hidden></div>
+
+    <form id="panel-login" class="panel" role="tabpanel" aria-labelledby="tab-login" novalidate>
+        <div class="field">
+            <label for="login-user">Username or email</label>
+            <input id="login-user" name="username" type="text" autocomplete="username" placeholder="surya" required>
+        </div>
+        <div class="field">
+            <label for="login-pass">Password</label>
+            <div class="pass-wrap">
+            <input id="login-pass" name="password" type="password" autocomplete="current-password" placeholder="Your password" required>
+            <button type="button" class="reveal" data-target="login-pass" aria-label="Show password">Show</button>
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+
+    <form id="panel-register" class="panel" role="tabpanel" aria-labelledby="tab-register" hidden novalidate>
+        <div class="field">
+        <label for="reg-user">Username</label>
+        <input id="reg-user" name="username" type="text" autocomplete="username" placeholder="surya" required>
+        <small class="hint">3-100 characters: letters, numbers, . _ -</small>
+        </div>
+        <div class="field">
+        <label for="reg-email">Email</label>
+        <input id="reg-email" name="email" type="email" autocomplete="email" placeholder="surya@example.com" required>
+        </div>
+        <div class="field">
+        <label for="reg-pass">Password</label>
+        <div class="pass-wrap">
+            <input id="reg-pass" name="password" type="password" autocomplete="new-password" placeholder="At least 6 characters" required>
+            <button type="button" class="reveal" data-target="reg-pass" aria-label="Show password">Show</button>
+        </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Create account</button>
+    </form>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboard-section" class="card" aria-labelledby="dash-title" hidden>
+    <div class="dash-head">
+        <h1 id="dash-title" class="title title-sm">Your vault</h1>
+        <button id="logout-btn" type="button" class="btn btn-ghost">Log out</button>
+    </div>
+
+    <form id="note-form" class="note-form" novalidate>
+        <div class="field">
+        <label for="note-title">Title</label>
+        <input id="note-title" type="text" maxlength="100" placeholder="What is this note about?" required>
+        </div>
+        <div class="field">
+        <label for="note-content">Note</label>
+        <textarea id="note-content" rows="4" placeholder="Write it down…" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save to vault</button>
+    </form>
+
+    <div id="dash-message" class="message" role="status" aria-live="polite" hidden></div>
+
+    <h2 class="section-title">Saved notes <span id="note-count" class="count">0</span></h2>
+    <div id="notes-container" class="notes"></div>
+    </section>
+</main>
+
+<script src="/frontend/utils.js"></script>
+<script src="/frontend/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+backend/config.py
+.env
+
+__pycache__/
+__pycache__
+.pytest_cache/
+
+.venv/
+
+env/
+.idea/
+.vscode/
+
+.DS_Store
+Thumbs.db
+
+*.db

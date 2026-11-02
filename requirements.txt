@@ -1,0 +1,24 @@
+# Core FastAPI Framework & Server
+fastapi
+uvicorn[standard]
+
+# Database & ORM
+sqlalchemy
+mariadb
+
+# Cryptography & Password Hashing
+passlib[bcrypt]
+bcrypt
+
+# OAuth2 & JWT Token Management
+python-jose[cryptography]
+# python-multipar
+
+# Data Validation & Serialization
+pydantic[email]
+email-validator
+pydantic-settings
+
+# Frontend UI / Client (Optional for Streamlit setup)
+streamlit
+requests
